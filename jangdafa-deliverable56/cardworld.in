@@ -1,0 +1,182 @@
+
+formulas(assumptions).
+
+(all x
+	(point(x)
+	->
+	(-edge(x)
+	& -surface(x)))).
+
+(all x
+	(edge(x)
+	->
+	-surface(x))).
+
+(all x all y
+	(part(x,y)
+	->
+	part(y,x))).
+
+(all x all y
+	(part(x,x))).
+
+(all s all e all p
+	((surface(s)
+	& edge(e)
+	& point(p)
+	& part(p,e)
+	& part(e,s))
+	->
+	(part(p,s)))).
+
+(all x all y
+	((part(x,y)
+	& point(x)
+	& point(y))
+	->
+	(x=y))).
+
+(all x all y
+	((part(x,y)
+	& edge(x)
+	& edge(y))
+	->
+	(x=y))).
+
+(all x all y
+	((part(x,y)
+	& surface(x)
+	& surface(y))
+	->
+	(x=y))).
+
+(all x all s1 all s2
+	((surface(s1)
+	& surface(s2)
+	& part(x,s1)
+	& part(x,s2)
+	& (point(x) | edge(x)))
+	->
+	(s1 =s2))).
+
+(all p
+	(point(p)
+	->
+	(exists e
+		(edge(e)
+		& part(p,e))))).
+
+(all e1
+	(edge(e1)
+	->
+	(exists e2 exists e3 exists v1 exists v2
+		(meet(e1,e2,v1)
+		& meet(e1,e3,v2)
+		& (v1 != v2))))).
+
+(all e all v1 all v2 all v3
+	((edge(e)
+	& vertex(v1)
+	& vertex(v2)
+	& vertex(v3)
+	& part(v1,e)
+	& part(v2,e)
+	& part(v3,e))
+	->
+	((v1 = v2) | (v1 = v3) | (v2 = v3)))).
+
+(all e
+	(edge(e)
+	->
+	(exists s
+		(surface(s)
+		& part(e,s))))).
+
+(all s
+	(surface(s)
+	->
+	(exists e
+		(edge(e)
+		& part(e,s))))).
+
+(all e1 all e2 all v
+	(meet(e1,e2,v)
+	<->
+	(edge(e1)
+	& edge(e2)
+	& point(v)
+	& (e1 != e2)
+	& part(v,e1)
+	& part(v,e2)))).
+
+(all v
+	(vertex(v)
+	<->
+	(exists e1 exists e2
+		(meet(e1,e2,v))))).
+
+(all e
+	(outer(e)
+	->
+	edge(e))).
+
+(all s
+	(surface(s)
+	->
+	(exists (e)
+		(outer(e)
+		& part(e,s))))).
+
+(all e1 all e2 all e3 all s
+	((outer(e1)
+	& outer(e2)
+	& outer(e3)
+	& (e1 != e2)
+	& (e1 != e3)
+	& (e1 != e2)
+	& surface(s)
+	& part(e1,s)
+	& part(e2,s)
+	& part(e3,s))
+	->
+	(sbetween(e1,e2,e3)
+	| sbetween(e3,e2,e1)))).
+
+(all e1 all e2 all e3 
+	((outer(e1)
+	& sbetween(e1,e2,e3))
+	-> 
+	outer(e3))).
+
+(all e1 all e2 all e3
+	(sbetween(e1,e2,e3)
+	->
+	sbetween(e2,e3,e1))).
+
+(all e1 all e2 all e3
+	(sbetween(e1,e2,e3)
+	->
+	-sbetween(e3,e2,e1))).
+
+(all e1 all e2 all e3 all e4
+	((sbetween(e1,e2,e3)
+	& sbetween(e1,e3,e4))
+	->
+	sbetween(e1,e2,e4))).
+
+(all e1 all e2 all e3
+	(sbetween(e1,e2,e3)
+	->
+	(exists s
+		(surface(s)
+		& edge(e1)
+		& edge(e2)
+		& edge(e3)
+		& part(e1,s)
+		& part(e2,s)
+		& part(e3,s))))).
+
+(all x
+	(point(x) | edge(x) | surface(x))).
+
+end_of_list.

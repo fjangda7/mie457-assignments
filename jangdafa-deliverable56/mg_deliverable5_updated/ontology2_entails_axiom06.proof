@@ -1,0 +1,29 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 41912 was started by mudcat on Hrabanus-2.local,
+Tue Feb 24 19:30:51 2015
+The command was "/Applications/Prover9-Mace4-v05B.app/Contents/Resources/bin-mac-intel/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 9.
+% Level of proof is 3.
+% Maximum clause weight is 6.
+% Given clauses 19.
+
+6 (all l (line(l) -> (exists p1 exists p2 (point(p1) & point(p2) & p1 != p2 & in(p1,l) & in(p2,l))))) # label(non_clause).  [assumption].
+8 -(all l (line(l) -> (exists p (point(p) & in(p,l))))) # label(non_clause).  [assumption].
+15 -line(x) | point(f2(x)).  [clausify(6)].
+18 -line(x) | in(f2(x),x).  [clausify(6)].
+22 line(c1).  [clausify(8)].
+23 -point(x) | -in(x,c1).  [clausify(8)].
+28 in(f2(c1),c1).  [resolve(22,a,18,a)].
+31 point(f2(c1)).  [resolve(22,a,15,a)].
+35 $F.  [ur(23,a,31,a),unit_del(a,28)].
+
+============================== end of proof ==========================

@@ -1,0 +1,51 @@
+
+(cl-text http://colore.oor.net/bipartite_incidence/point_line.clif
+
+(forall (x y)
+	(if	(in x y)
+		(in y x)))
+
+(forall (x)
+	(if	(or	(point x)
+			(line x))
+		(in x x)))
+
+(forall (p)
+	(if	(point p)
+		(not (line p))))
+
+(forall (x y)
+	(if	(and (in x y)
+			(point x)
+			(point y))
+		(= x y)))
+
+(forall (x y)
+	(if	(and	(in x y)
+			(line x)
+			(line y))
+		(= x y)))
+
+
+(forall (l)
+        (if     (line l)
+                (exists (x y)
+                        (and    (point x)
+                                (point y)
+                                (not (= x y))
+                                (in x l)
+                                (in y l)))))
+
+
+
+(forall (x y)
+        (if     (and    (line x)
+                        (line y)
+                        (not (= x y)))
+                (exists (z)
+                        (and    (point z)
+                                (in z x)
+                                (not (in z y))))))
+
+
+)
