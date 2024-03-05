@@ -12,14 +12,6 @@ end_if.
 
 formulas(assumptions).
 
-(exists x (point(x))).
-
-(exists x (line(x))).
-
-(exists x (plane(x))).
-
-(exists x exists y (in(x,y) & (x != y))).
-
 (all x all y (in(x,y) -> in(y,x))).
 (all x (point(x) | line(x) | plane(x) -> in(x, x))).
 (all p (point(p) -> -(line(p)))).
@@ -28,7 +20,6 @@ formulas(assumptions).
 (all x all y (in(x, y) & point(x) & point(y) -> (x=y))).
 (all x all y (in(x, y) & line(x) & line(y) -> (x=y))).
 (all x all y (in(x, y) & plane(x) & plane(y) -> (x=y))).
-(all q all p (plane(q) & point(p) & (in(p, q))) -> exists l (line(l) & in(p, l) & in(l, q))).
 (all l (line(l) -> exists p exists q (plane(q) & point(p) & in(p, q) & in(p, l) & in(l, q)))).
 
 end_of_list.
