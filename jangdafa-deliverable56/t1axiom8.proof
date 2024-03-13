@@ -1,0 +1,35 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 4840 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 21:05:27 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 15.
+% Level of proof is 3.
+% Maximum clause weight is 10.
+% Given clauses 21.
+
+12 (all x all y (in(x,y) & plane(x) & plane(y) -> x = y)) # label(non_clause).  [assumption].
+16 (all x (plane(x) <-> surface(x))) # label(non_clause).  [assumption].
+17 (all x all y (in(x,y) <-> part(x,y))) # label(non_clause).  [assumption].
+18 (all x all y (part(x,y) & surface(x) & surface(y) -> x = y)) # label(non_clause) # label(goal).  [goal].
+23 plane(x) | -surface(x).  [clausify(16)].
+25 surface(c9).  [deny(18)].
+26 surface(c10).  [deny(18)].
+27 in(x,y) | -part(x,y).  [clausify(17)].
+29 part(c9,c10).  [deny(18)].
+44 -in(x,y) | -plane(x) | -plane(y) | y = x.  [clausify(12)].
+48 c10 != c9.  [deny(18)].
+49 plane(c9).  [resolve(25,a,23,b)].
+50 plane(c10).  [resolve(26,a,23,b)].
+51 in(c9,c10).  [resolve(29,a,27,b)].
+66 $F.  [ur(44,b,49,a,c,50,a,d,48,a),unit_del(a,51)].
+
+============================== end of proof ==========================

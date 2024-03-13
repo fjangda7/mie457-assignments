@@ -1,0 +1,32 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 13120 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 21:02:21 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 12.
+% Level of proof is 3.
+% Maximum clause weight is 4.
+% Given clauses 19.
+
+9 (all p (plane(p) -> -line(p))) # label(non_clause).  [assumption].
+15 (all x (line(x) <-> edge(x))) # label(non_clause).  [assumption].
+16 (all x (plane(x) <-> surface(x))) # label(non_clause).  [assumption].
+18 (all x (edge(x) -> -surface(x))) # label(non_clause) # label(goal).  [goal].
+21 line(x) | -edge(x).  [clausify(15)].
+23 edge(c9).  [deny(18)].
+24 plane(x) | -surface(x).  [clausify(16)].
+26 surface(c9).  [deny(18)].
+40 -plane(x) | -line(x).  [clausify(9)].
+47 line(c9).  [resolve(23,a,21,b)].
+48 plane(c9).  [resolve(26,a,24,b)].
+60 $F.  [ur(40,b,47,a),unit_del(a,48)].
+
+============================== end of proof ==========================

@@ -17,8 +17,7 @@ formulas(assumptions).
 	->
 	part(y,x))).
 
-(all x all y
-	(part(x,x))).
+(all x (part(x,x))).
 
 (all s all e all p
 	((surface(s)

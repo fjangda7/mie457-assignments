@@ -1,0 +1,36 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 9744 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 21:15:01 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 16.
+% Level of proof is 4.
+% Maximum clause weight is 4.
+% Given clauses 21.
+
+7 (all p (point(p) -> -line(p))) # label(non_clause).  [assumption].
+8 (all p (point(p) -> -plane(p))) # label(non_clause).  [assumption].
+15 (all x (line(x) <-> edge(x))) # label(non_clause).  [assumption].
+16 (all x (plane(x) <-> surface(x))) # label(non_clause).  [assumption].
+18 (all x (point(x) -> -edge(x) & -surface(x))) # label(non_clause) # label(goal).  [goal].
+21 line(x) | -edge(x).  [clausify(15)].
+23 edge(c6) | surface(c6).  [deny(18)].
+24 plane(x) | -surface(x).  [clausify(16)].
+26 surface(c6) | line(c6).  [resolve(23,a,21,b)].
+38 -point(x) | -line(x).  [clausify(7)].
+39 -point(x) | -plane(x).  [clausify(8)].
+49 point(c6).  [deny(18)].
+50 line(c6) | plane(c6).  [resolve(26,a,24,b)].
+69 -plane(c6).  [resolve(49,a,39,a)].
+70 -line(c6).  [resolve(49,a,38,a)].
+72 $F.  [back_unit_del(50),unit_del(a,70),unit_del(b,69)].
+
+============================== end of proof ==========================

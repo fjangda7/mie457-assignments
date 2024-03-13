@@ -1,0 +1,35 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 8896 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 21:17:00 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 15.
+% Level of proof is 3.
+% Maximum clause weight is 10.
+% Given clauses 23.
+
+11 (all x all y (in(x,y) & line(x) & line(y) -> x = y)) # label(non_clause).  [assumption].
+15 (all x (line(x) <-> edge(x))) # label(non_clause).  [assumption].
+17 (all x all y (in(x,y) <-> part(x,y))) # label(non_clause).  [assumption].
+18 (all x all y (part(x,y) & edge(x) & edge(y) -> x = y)) # label(non_clause) # label(goal).  [goal].
+21 line(x) | -edge(x).  [clausify(15)].
+23 edge(c6).  [deny(18)].
+24 edge(c7).  [deny(18)].
+27 in(x,y) | -part(x,y).  [clausify(17)].
+29 part(c6,c7).  [deny(18)].
+43 -in(x,y) | -line(x) | -line(y) | y = x.  [clausify(11)].
+50 c7 != c6.  [deny(18)].
+51 line(c6).  [resolve(23,a,21,b)].
+52 line(c7).  [resolve(24,a,21,b)].
+53 in(c6,c7).  [resolve(29,a,27,b)].
+83 $F.  [ur(43,b,51,a,c,52,a,d,50,a),unit_del(a,53)].
+
+============================== end of proof ==========================

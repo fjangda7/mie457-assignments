@@ -1,0 +1,31 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 15196 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 21:04:46 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 11.
+% Level of proof is 3.
+% Maximum clause weight is 10.
+% Given clauses 21.
+
+10 (all x all y (in(x,y) & point(x) & point(y) -> x = y)) # label(non_clause).  [assumption].
+17 (all x all y (in(x,y) <-> part(x,y))) # label(non_clause).  [assumption].
+18 (all x all y (part(x,y) & point(x) & point(y) -> x = y)) # label(non_clause) # label(goal).  [goal].
+25 in(x,y) | -part(x,y).  [clausify(17)].
+27 part(c9,c10).  [deny(18)].
+40 -in(x,y) | -point(x) | -point(y) | y = x.  [clausify(10)].
+46 point(c9).  [deny(18)].
+47 point(c10).  [deny(18)].
+48 c10 != c9.  [deny(18)].
+49 in(c9,c10).  [resolve(27,a,25,b)].
+66 $F.  [ur(40,b,46,a,c,47,a,d,48,a),unit_del(a,49)].
+
+============================== end of proof ==========================

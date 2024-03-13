@@ -1,0 +1,26 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 14228 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 20:23:57 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.01) seconds.
+% Length of proof is 6.
+% Level of proof is 2.
+% Maximum clause weight is 4.
+% Given clauses 0.
+
+4 (all p (point(p) -> -plane(p))) # label(non_clause).  [assumption].
+10 (all q all p (plane(q) & point(p) & in(p,q))) -> (exists l (line(l) & in(p,l) & in(l,q))) # label(non_clause) # label(goal).  [goal].
+16 -point(x) | -plane(x).  [clausify(4)].
+26 plane(x).  [deny(10)].
+27 point(x).  [deny(10)].
+32 $F.  [back_unit_del(16),unit_del(a,27),unit_del(b,26)].
+
+============================== end of proof ==========================

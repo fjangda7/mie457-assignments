@@ -1,0 +1,38 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 3844 was started by fjang on DESKTOP-851F4RH,
+Tue Mar 12 21:19:05 2024
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.03 (+ 0.00) seconds.
+% Length of proof is 18.
+% Level of proof is 5.
+% Maximum clause weight is 6.
+% Given clauses 60.
+
+13 (all l (line(l) -> (exists p exists q (plane(q) & point(p) & in(p,q) & in(p,l) & in(l,q))))) # label(non_clause).  [assumption].
+15 (all x (line(x) <-> edge(x))) # label(non_clause).  [assumption].
+16 (all x (plane(x) <-> surface(x))) # label(non_clause).  [assumption].
+17 (all x all y (in(x,y) <-> part(x,y))) # label(non_clause).  [assumption].
+18 (all e (edge(e) -> (exists s (surface(s) & part(e,s))))) # label(non_clause) # label(goal).  [goal].
+21 line(x) | -edge(x).  [clausify(15)].
+23 edge(c6).  [deny(18)].
+25 -plane(x) | surface(x).  [clausify(16)].
+26 -surface(x) | -part(c6,x).  [deny(18)].
+42 -line(x) | plane(f2(x)).  [clausify(13)].
+46 -line(x) | in(x,f2(x)).  [clausify(13)].
+47 -in(x,y) | part(x,y).  [clausify(17)].
+49 line(c6).  [resolve(23,a,21,b)].
+50 -part(c6,x) | -plane(x).  [resolve(26,a,25,b)].
+67 in(c6,f2(c6)).  [hyper(46,a,49,a)].
+71 plane(f2(c6)).  [hyper(42,a,49,a)].
+92 -part(c6,f2(c6)).  [ur(50,b,71,a)].
+103 $F.  [hyper(47,a,67,a),unit_del(a,92)].
+
+============================== end of proof ==========================

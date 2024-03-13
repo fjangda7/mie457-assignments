@@ -1,0 +1,100 @@
+% number = 1
+% seconds = 0
+
+% Interpretation of size 3
+
+c1 = 0.
+
+c2 = 1.
+
+c3 = 2.
+
+c4 = 0.
+
+c5 = 1.
+
+c6 = 0.
+
+c7 = 0.
+
+c8 = 0.
+
+f1(0) = 0.
+f1(1) = 0.
+f1(2) = 0.
+
+f2(0) = 0.
+f2(1) = 2.
+f2(2) = 0.
+
+- edge(0).
+  edge(1).
+- edge(2).
+
+- line(0).
+  line(1).
+- line(2).
+
+- plane(0).
+- plane(1).
+  plane(2).
+
+  point(0).
+- point(1).
+- point(2).
+
+- surface(0).
+- surface(1).
+  surface(2).
+
+  vertex(0).
+- vertex(1).
+- vertex(2).
+
+  in(0,0).
+  in(0,1).
+  in(0,2).
+  in(1,0).
+  in(1,1).
+  in(1,2).
+  in(2,0).
+  in(2,1).
+  in(2,2).
+
+  part(0,0).
+  part(0,1).
+  part(0,2).
+  part(1,0).
+  part(1,1).
+  part(1,2).
+  part(2,0).
+  part(2,1).
+  part(2,2).
+
+  sbetween(0,0,0).
+- sbetween(0,0,1).
+- sbetween(0,0,2).
+- sbetween(0,1,0).
+- sbetween(0,1,1).
+- sbetween(0,1,2).
+- sbetween(0,2,0).
+- sbetween(0,2,1).
+- sbetween(0,2,2).
+- sbetween(1,0,0).
+- sbetween(1,0,1).
+- sbetween(1,0,2).
+- sbetween(1,1,0).
+- sbetween(1,1,1).
+- sbetween(1,1,2).
+- sbetween(1,2,0).
+- sbetween(1,2,1).
+- sbetween(1,2,2).
+- sbetween(2,0,0).
+- sbetween(2,0,1).
+- sbetween(2,0,2).
+- sbetween(2,1,0).
+- sbetween(2,1,1).
+- sbetween(2,1,2).
+- sbetween(2,2,0).
+- sbetween(2,2,1).
+- sbetween(2,2,2).
